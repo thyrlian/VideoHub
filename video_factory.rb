@@ -1,3 +1,5 @@
+require_relative 'models/video'
+
 module VideoHub
   class VideoFactory
     class << self
@@ -11,6 +13,10 @@ module VideoHub
           end
         end
         videos
+      end
+
+      def get_all_modeled_videos(dir, *supported_formats)
+        get_all_videos(dir, *supported_formats).map! { |video| Video.new(video) }
       end
     end
 
