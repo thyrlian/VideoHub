@@ -1,0 +1,5 @@
+%h1 Videos List
+%ul
+  - @videos.each_with_index do |video, index|
+    %li
+      %a{:href => "video/#{index}"}= video.name
