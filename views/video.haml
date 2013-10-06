@@ -3,6 +3,8 @@
   %video{:width => @video.width, :height => @video.height, :controls => true}
     %source{:src => @video.path.gsub('./public', ''), :type => "video/#{@video.type}"}
   %div{:id => 'adjacency'}
-    %a{:href => "#{@idx - 1}", :id => 'last', :style => 'float: left;'}= @videos[@idx - 1].name
-    %a{:href => "#{@idx + 1}", :id => 'next', :style => 'float: right;'}= @videos[@idx + 1].name
+    - if @idx > 0
+      %a{:href => "#{@idx - 1}", :id => 'last', :style => 'float: left;'}= @videos[@idx - 1].name
+    - if @idx < @videos.length - 1
+      %a{:href => "#{@idx + 1}", :id => 'next', :style => 'float: right;'}= @videos[@idx + 1].name
     %div{:style => 'clear: both;'}
