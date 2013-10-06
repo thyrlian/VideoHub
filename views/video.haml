@@ -1,3 +1,8 @@
-%h1= @video.name
-%video{:width => @video.width, :height => @video.height, :controls => true}
-  %source{:src => @video.path.gsub('./public', ''), :type => "video/#{@video.type}"}
+%div{:id => 'content', :style => 'width: 50%; margin: 0 auto;'}
+  %h1= @video.name
+  %video{:width => @video.width, :height => @video.height, :controls => true}
+    %source{:src => @video.path.gsub('./public', ''), :type => "video/#{@video.type}"}
+  %div{:id => 'adjacency'}
+    %a{:href => "#{@idx - 1}", :id => 'last', :style => 'float: left;'}= @videos[@idx - 1].name
+    %a{:href => "#{@idx + 1}", :id => 'next', :style => 'float: right;'}= @videos[@idx + 1].name
+    %div{:style => 'clear: both;'}
