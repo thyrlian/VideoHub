@@ -1,4 +1,4 @@
-%div{:id => 'content', :style => 'width: 50%; margin: 0 auto;'}
+%div{:id => 'content', :style => "width: #{@video.width}px; position: absolute; left: 50%; margin-left: #{-@video.width / 2}px;"}
   %h1= @video.name
   %video{:width => @video.width, :height => @video.height, :controls => true}
     %source{:src => @video.path.gsub('./public', ''), :type => "video/#{@video.type}"}
