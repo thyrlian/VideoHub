@@ -1,5 +1,5 @@
 %h1 Videos List
-%ul
+%ul{ :class => 'nav nav-list' }
   - @videos.each_with_index do |video, index|
     %li
-      %a{:href => "videos/#{index}"}= video.name
+      %a{ :href => "videos/#{index}" }= video.name
