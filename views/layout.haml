@@ -1,7 +1,10 @@
 !!! 5
-%html{:lang => "en"}
+%html{ :lang => 'en' }
   %head
-    %meta{ :charset => "utf-8" }
+    %meta{ :charset => 'utf-8' }
+    %link{ :href => '/css/bootstrap.css', :rel => 'stylesheet' }
+    %link{ :href => '/css/bootstrap-responsive.css', :rel => 'stylesheet' }
     %title Video Hub
   %body
     = yield
+    %script{ :src => '/js/bootstrap.min.js' }
