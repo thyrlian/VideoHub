@@ -1,23 +1,19 @@
 require 'sinatra/base'
 require 'haml'
 
-require_relative 'video_factory'
+require_relative 'models/init'
+require_relative 'routes/init'
+require_relative 'helpers/init'
 
 module VideoHub
   class App < Sinatra::Base
+    current_working_dir = File.dirname(__FILE__)
+    set :views, "#{current_working_dir}/views"
+    set :public_folder, "#{current_working_dir}/public"
+    
     before do
       dir_video = File.join(File.dirname(__FILE__), 'public/media/video')
       @videos = VideoFactory.get_all_modeled_videos(dir_video, :mp4)
-    end
-
-    get '/' do
-      haml :videos
-    end
-
-    get '/videos/:idx' do |idx|
-      @idx = idx.to_i
-      @video = @videos[@idx]
-      haml :video
     end
   end
 end
