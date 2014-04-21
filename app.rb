@@ -7,9 +7,13 @@ require_relative 'helpers/init'
 
 module VideoHub
   class App < Sinatra::Base
-    current_working_dir = File.dirname(__FILE__)
-    set :views, "#{current_working_dir}/views"
-    set :public_folder, "#{current_working_dir}/public"
+    configure do
+      root_dir = File.dirname(__FILE__)
+      set :root, root_dir
+      set :app_file, File.join(root_dir, File.basename(__FILE__))
+      set :views, "#{root_dir}/views"
+      set :public_folder, "#{root_dir}/public"
+    end
     
     before do
       dir_video = File.join(File.dirname(__FILE__), 'public/media/video')
