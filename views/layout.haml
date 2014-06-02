@@ -6,6 +6,7 @@
     %link{ :href => '/css/bootstrap-responsive.css', :rel => 'stylesheet' }
     %title Video Hub
   %body
-    = yield
     %script{ :src => '//code.jquery.com/jquery.js' }
     %script{ :src => '/js/bootstrap.min.js' }
+    %div{:class => "container-fluid"}
+      = yield
