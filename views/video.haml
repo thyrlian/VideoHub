@@ -1,5 +1,11 @@
 :javascript
   $(window).load(function() {
+    setVideoPlayerSize();
+  });
+  $(window).on('resize', function() {
+    setVideoPlayerSize();
+  });
+  function setVideoPlayerSize() {
     var scale = 0.6;
     var width = window.innerWidth * scale;
     var height = window.innerHeight * scale;
@@ -7,7 +13,7 @@
       'width' : width,
       'height' : height
     });
-  });
+  };
 
 %div{ :id => 'container', :style => "width: #{@video.width}px; position: absolute; left: 50%; margin-left: #{-@video.width / 2}px;" }
   %h1= @video.name
