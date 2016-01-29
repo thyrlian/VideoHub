@@ -1,7 +1,18 @@
+:javascript
+  $(window).load(function() {
+    var scale = 0.6;
+    var width = window.innerWidth * scale;
+    var height = window.innerHeight * scale;
+    $('#video').attr({
+      'width' : width,
+      'height' : height
+    });
+  });
+
 %div{ :id => 'container', :style => "width: #{@video.width}px; position: absolute; left: 50%; margin-left: #{-@video.width / 2}px;" }
   %h1= @video.name
-  %video{ :width => @video.width, :height => @video.height, :controls => true }
     %source{ :src => @video.path.gsub('./public', ''), :type => "video/#{@video.type}" }
+  %video{ :id => 'video', :controls => true }
   %div{ :id => 'adjacency' }
     - if @idx > 0
       %a{ :href => "#{@idx - 1}", :rel => 'prev', :style => 'float: left;' }= @videos[@idx - 1].name
