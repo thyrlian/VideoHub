@@ -17,7 +17,7 @@
 
 %div{ :id => 'container', :style => "width: #{@video.width}px; position: absolute; left: 50%; margin-left: #{-@video.width / 2}px;" }
   %h1= @video.name
-  %video{ :id => 'video', :controls => true }
+  %video{ :id => 'video', :class => 'centered', :controls => true }
     %source{ :src => @video.path.gsub(/^.*\/public/, ''), :type => "video/#{@video.type}" }
   %div{ :id => 'adjacency' }
     - if @idx > 0
