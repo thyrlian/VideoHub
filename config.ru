@@ -22,4 +22,4 @@ module VideoHub
   end
 end
 
-VideoHub::App.run!
+run VideoHub::App
