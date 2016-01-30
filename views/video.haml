@@ -15,7 +15,7 @@
     });
   };
 
-%div{ :id => 'container', :style => "width: #{@video.width}px; position: absolute; left: 50%; margin-left: #{-@video.width / 2}px;" }
+%div{ :id => 'container' }
   %h1= @video.name
   %video{ :id => 'video', :class => 'centered', :controls => true }
     %source{ :src => @video.path.gsub(/^.*\/public/, ''), :type => "video/#{@video.type}" }
