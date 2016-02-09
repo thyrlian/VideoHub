@@ -6,12 +6,10 @@
     setVideoPlayerSize();
   });
   function setVideoPlayerSize() {
-    var scale = 0.6;
-    var width = window.innerWidth * scale;
-    var height = window.innerHeight * scale;
+    var scale = 0.618;
     $('#video').attr({
-      'width' : width,
-      'height' : height
+      'width' : window.innerWidth * scale,
+      'height' : 'auto'
     });
   };
 
