@@ -13,6 +13,7 @@ module VideoHub
       set :app_file, File.join(root_dir, File.basename(__FILE__))
       set :views, "#{root_dir}/views"
       set :public_folder, "#{root_dir}/public"
+      set :bind, '0.0.0.0'
     end
     
     before do
