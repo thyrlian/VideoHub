@@ -10,3 +10,8 @@ html, body {
   margin: auto;
   display: block;
 }
+
+#video {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
