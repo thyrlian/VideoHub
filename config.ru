@@ -17,7 +17,7 @@ module VideoHub
     end
     
     before do
-      dir_video = File.join(File.dirname(__FILE__), 'public/media/video')
+      dir_video = File.join(File.dirname(__FILE__), 'public/media/videos')
       @videos = VideoFactory.get_all_modeled_videos(dir_video, :mp4)
     end
   end
