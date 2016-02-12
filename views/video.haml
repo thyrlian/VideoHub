@@ -18,8 +18,12 @@
   %video{ :id => 'video', :class => 'centered', :controls => true }
     %source{ :src => @video.path.gsub(/^.*\/public/, ''), :type => "video/#{@video.type}" }
   %div{ :id => 'adjacency' }
-    - if @idx > 0
-      %a{ :href => "#{@idx - 1}", :rel => 'prev', :id => 'prev', :class => 'button', :style => 'float: left;' }= @videos[@idx - 1].name
     - if @idx < @videos.length - 1
-      %a{ :href => "#{@idx + 1}", :rel => 'next', :id => 'next', :class => 'button', :style => 'float: right;' }= @videos[@idx + 1].name
+      %div{ :style => 'float: right;' }
+        %a{ :href => "#{@idx + 1}", :rel => 'next', :id => 'next', :class => 'button', :display => 'inline-block' }= @videos[@idx + 1].name
+        %div{ :class => 'arrow-right', :display => 'inline-block' }
+    - if @idx > 0
+      %div{ :style => 'float: left;' }
+        %div{ :class => 'arrow-left', :display => 'inline-block' }
+        %a{ :href => "#{@idx - 1}", :rel => 'prev', :id => 'prev', :class => 'button', :display => 'inline-block' }= @videos[@idx - 1].name
     %div{ :style => 'clear: both;' }

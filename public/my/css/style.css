@@ -85,3 +85,17 @@ html, body {
   background-color: #78a514;
   border-color: #6b9312;
 }
+
+.arrow-left {
+  float: left;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-right: 18px solid #f5af02;
+}
+
+.arrow-right {
+  float: right;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 18px solid #85b817;
+}
