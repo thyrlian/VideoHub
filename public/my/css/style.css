@@ -16,86 +16,15 @@ html, body {
   margin-bottom: 24px;
 }
 
-.button {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
+.chevron-right:after {
+  content: "\e080";
+}
+
+.chevron-left:before {
+  content: "\e079";
+}
+
+.link-btn {
   vertical-align: middle;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.button:focus,
-.button:active:focus,
-.button.active:focus,
-.button.focus,
-.button:active.focus,
-.button.active.focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-.button:hover,
-.button:focus,
-.button.focus {
-  color: #333;
-  text-decoration: none;
-}
-
-#prev {
-  color: #fff;
-  background-color: #f5af02;
-  border-color: #dc9d01;
-}
-#prev:focus {
-  color: #fff;
-  background-color: #dc9d01;
-  border-color: #c48c01;
-}
-#prev:hover {
-  color: #fff;
-  background-color: #dc9d01;
-  border-color: #c48c01;
-}
-
-#next {
-  color: #fff;
-  background-color: #86b817;
-  border-color: #78a514;
-}
-#next:focus {
-  color: #fff;
-  background-color: #78a514;
-  border-color: #6b9312;
-}
-#next:hover {
-  color: #fff;
-  background-color: #78a514;
-  border-color: #6b9312;
-}
-
-.arrow-left {
-  float: left;
-  border-top: 18px solid transparent;
-  border-bottom: 18px solid transparent;
-  border-right: 18px solid #f5af02;
-}
-
-.arrow-right {
-  float: right;
-  border-top: 18px solid transparent;
-  border-bottom: 18px solid transparent;
-  border-left: 18px solid #85b817;
+  line-height: normal;
 }
