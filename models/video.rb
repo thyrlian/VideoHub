@@ -7,10 +7,22 @@ module VideoHub
     def initialize(path)
       @path = path
       @name = File.basename(path).chomp(File.extname(path))
-      @type = File.extname(path).gsub(/^\./, '').downcase
+      @type = process_type(File.extname(path).gsub(/^\./, '').downcase)
       metadata = FFMPEG::Movie.new(path)
       get_dimensions(metadata)
       get_duration(metadata)
+    end
+    
+    def process_type(extname)
+      case extname
+      # mkv could be supported only by Chrome so far
+      # mkv with AC3 audio encoding would be played without sound
+      # transcode AC3 to AAC should work fine
+      when 'mkv'
+        return 'webm'
+      else
+        return extname
+      end
     end
 
     def get_dimensions(metadata)
@@ -28,6 +40,6 @@ module VideoHub
       }.compact.reverse.join(' ')
     end
 
-    private :get_dimensions, :get_duration
+    private :process_type, :get_dimensions, :get_duration
   end
 end
