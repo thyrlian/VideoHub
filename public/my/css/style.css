@@ -17,14 +17,11 @@ html, body {
 }
 
 .chevron-right:after {
+  font-family: 'Glyphicons Halflings';
   content: "\e080";
 }
 
 .chevron-left:before {
+  font-family: 'Glyphicons Halflings';
   content: "\e079";
-}
-
-.link-btn {
-  vertical-align: middle;
-  line-height: normal;
 }
