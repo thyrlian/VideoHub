@@ -12,6 +12,11 @@
       'height' : 'auto'
     });
   };
+  $(document).ready(function() {
+    $('#video').click(function() {
+      this.paused ? this.play() : this.pause();
+    });
+  });
 
 %div{ :id => 'container' }
   %h1= @video.name
