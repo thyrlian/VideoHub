@@ -21,7 +21,7 @@ ERROR Errno::EPROTOTYPE: Protocol wrong type for socket
 /ruby/2.0.0/webrick/httpresponse.rb:207:in `send_response'
 ```
 
-Thus it's encouraged to use high performance server, e.g.: [Nginx + Unicorn](http://recipes.sinatrarb.com/p/deployment/nginx_proxied_to_unicorn).
+Thus it's recommended to use high performance server, e.g.: [Nginx + Unicorn](http://recipes.sinatrarb.com/p/deployment/nginx_proxied_to_unicorn).
 
 ##License
 Copyright (c) 2016 Jing Li. See the LICENSE file for license rights and limitations (MIT).
