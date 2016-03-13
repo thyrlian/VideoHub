@@ -38,11 +38,24 @@
     }
   };
   $(document).ready(function() {
+    var CLICK_DELAY = 300;
+    var clicks = 0;
+    var timer = null;
+    var video = $('#video').get(0);
     $('#video').click(function() {
-      this.paused ? this.play() : this.pause();
-    });
-    $('#video').dblclick(function() {
-      handleFullscreen(this);
+      clicks++;
+      if (clicks === 1) {
+        timer = setTimeout(function() {
+          clicks = 0;
+          video.paused ? video.play() : video.pause();
+        }, CLICK_DELAY);
+      } else {
+        clearTimeout(timer);
+        clicks = 0;
+        handleFullscreen(video);
+      }
+    }).dblclick(function(event) {
+      event.preventDefault();
     });
   });
 
