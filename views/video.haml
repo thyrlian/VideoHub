@@ -12,9 +12,37 @@
       'height' : 'auto'
     });
   };
+  function isFullScreenEnabled() {
+    return !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitSupportsFullscreen || document.webkitFullscreenEnabled || document.createElement('video').webkitRequestFullScreen);
+  };
+  function isFullScreen() {
+    return !!(document.fullScreen || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
+  }
+  function setFullscreenData(videoContainer, state) {
+    videoContainer.setAttribute('data-fullscreen', !!state);
+  }
+  function handleFullscreen(videoContainer) {
+    if (isFullScreen()) {
+      if (document.exitFullscreen) document.exitFullscreen();
+      else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+      else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
+      else if (document.msExitFullscreen) document.msExitFullscreen();
+      setFullscreenData(videoContainer, false);
+    }
+    else {
+      if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
+      else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
+      else if (videoContainer.webkitRequestFullScreen) video.webkitRequestFullScreen();
+      else if (videoContainer.msRequestFullscreen) videoContainer.msRequestFullscreen();
+      setFullscreenData(videoContainer, true);
+    }
+  };
   $(document).ready(function() {
     $('#video').click(function() {
       this.paused ? this.play() : this.pause();
+    });
+    $('#video').dblclick(function() {
+      handleFullscreen(this);
     });
   });
 
